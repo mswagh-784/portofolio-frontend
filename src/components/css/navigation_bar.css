@@ -1,0 +1,112 @@
+.navbar {
+  height: 10vh;
+  background-color: var(--white) !important;
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbar.scrolled {
+  height: 8vh;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.navbar-brand img {
+  height: 80px;
+  width: auto;
+  transition: var(--transition);
+  object-fit: contain;
+}
+
+.navbar.scrolled .navbar-brand img {
+  height: 60px;
+}
+
+.nav-link {
+  color: var(--primary-color) !important;
+  margin-right: 1.5rem;
+  font-weight: 500;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary-color);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color) !important;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+  transition: var(--transition);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232d3436' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  transition: var(--transition);
+}
+
+.dropdown-menu {
+  background-color: var(--white);
+  border: none;
+  box-shadow: var(--shadow);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.dropdown-item {
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.dropdown-item:hover {
+  background-color: var(--light-bg);
+  color: var(--secondary-color);
+  transform: translateX(5px);
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-top: 1rem;
+  }
+
+  .nav-link {
+    margin: 0.5rem 0;
+  }
+}
