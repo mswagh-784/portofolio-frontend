@@ -7,19 +7,22 @@ function Education (){
       title: 'B.Tech in Computer Engineering',
       institution: 'All India Shri Shivaji Memorial Society\'s Institue of Information Technology, Pune',
       duration: '2022 - 2026',
-      description: 'CGPA: 8.89 (upto sem 5)'
+      description: 'CGPA: 8.89 (upto sem 5)',
+      link: 'https://aissmsioit.org/'
     },
     {
       title: 'HSC 12th',
       institution: 'S.B.E.S College of Science, Ch.Sambhajinagar',
       duration: '2020 - 2022',
-      description: 'Percentage: 80.00%'
+      description: 'Percentage: 80.00%',
+      link: 'https://sbaccollege.in/home.html'
     },
     {
       title: 'CBSE 10th',
       institution: 'Gaikwad Global School, Ch.Sambhajinagar',
       duration: '2016 - 2020',
-      description: 'Percentage: 86.00%'
+      description: 'Percentage: 86.00%',
+      link: 'https://www.gaikwadglobalschool.in/'
     }
   ];
   return (
@@ -30,7 +33,7 @@ function Education (){
           {education.map((item, index) => (
             <div className="education" key={index}>
               <h3>{item.title}</h3>
-              <h4>{item.institution}</h4>
+              <a href={item.link}><h4>{item.institution}</h4></a>
               <p>{item.duration}</p>
               <p>{item.description}</p>
             </div>
