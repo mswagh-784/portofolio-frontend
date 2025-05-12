@@ -204,11 +204,29 @@
   }
   
   .overlay-content h5 {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   
   .overlay-content p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+
+  .overlay-content .btn {
+    font-size: 0.95rem;
+    padding: 6px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay-content h5 {
+    font-size: 0.95rem;
+  }
+  .overlay-content p {
+    font-size: 0.75rem;
+  }
+  .overlay-content .btn {
+    font-size: 0.85rem;
+    padding: 5px 10px;
   }
 }
 
