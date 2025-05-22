@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   activeStatus = true;
   errorStatus = false;
   res.send('Server is running');
-}
+});
 app.use(bodyParser.json());
 app.use(cors({
   origin: [
