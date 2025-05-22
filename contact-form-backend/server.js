@@ -9,11 +9,17 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
+app.get('/', (req, res) => {
+  activeStatus = true;
+  errorStatus = false;
+  res.send('Server is running');
+}
 app.use(bodyParser.json());
 app.use(cors({
   origin: [
     'http://localhost:5173',
     'http://localhost:3000',
+    'https://portfolio-mohitwagh.vercel.app',
     'https://your-vercel-domain.vercel.app'
   ]
 }));
