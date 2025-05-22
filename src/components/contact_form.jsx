@@ -18,19 +18,22 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Check for empty phone before sending
     if (!formData.phone) {
       alert('Phone number is required!');
       return;
     }
-    console.log('Submitting form data:', formData); // This logs the form data object
+    console.log('Submitting form data to:', `${config.apiUrl}/api/contact`);
+    console.log('Form data:', formData);
+    
     try {
       const response = await fetch(`${config.apiUrl}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify(formData),
+        mode: 'cors',
       });
 
       if (response.ok) {

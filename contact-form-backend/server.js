@@ -15,15 +15,11 @@ app.get('/', (req, res) => {
   res.send('Server is running');
 });
 app.use(bodyParser.json());
+// Apply CORS middleware before routes
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:3000',
-    'https://portfolio-mohitwagh.vercel.app'
-  ],
-  methods: ['GET', 'POST', 'OPTIONS'],
-  credentials: true,
-  allowedHeaders: ['Content-Type']
+  origin: '*',  // Allow all origins for testing
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 
 // MongoDB connection
