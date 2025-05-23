@@ -22,11 +22,11 @@ const ContactForm = () => {
       alert('Phone number is required!');
       return;
     }
-    console.log('Submitting form data to:', `${config.apiUrl}/api/contact`);
+    console.log('Submitting form data to:', "https://portfolio-psi-tan-53.vercel.api/contact");
     console.log('Form data:', formData);
     
     try {
-      const response = await fetch(`${config.apiUrl}/api/contact`, {
+      const response = await fetch("https://portfolio-psi-tan-53.vercel.api/contact", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         // Send emails after saving to DB
-        await fetch(`${config.apiUrl}/api/send-email`, {
+        await fetch("https://portfolio-psi-tan-53.vercel.api/send-email", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
