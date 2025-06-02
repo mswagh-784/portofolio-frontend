@@ -26,9 +26,39 @@ app.use(cors({
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
+  socketTimeoutMS: 45000, // Close sockets after 45s of inactivity
 })
-.then(() => console.log('MongoDB connected'))
-.catch((err) => console.log(err));
+.then(() => {
+  console.log('MongoDB connected successfully');
+  // Only start the server after successful database connection
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+})
+.catch((err) => {
+  console.error('MongoDB connection error:', {
+    message: err.message,
+    name: err.name,
+    code: err.code,
+    stack: err.stack
+  });
+  process.exit(1); // Exit if cannot connect to database
+});
+
+// Add connection error handler
+mongoose.connection.on('error', err => {
+  console.error('MongoDB connection error:', err);
+});
+
+// Add disconnection handler
+mongoose.connection.on('disconnected', () => {
+  console.log('MongoDB disconnected');
+});
+
+// Add reconnection handler
+mongoose.connection.on('reconnected', () => {
+  console.log('MongoDB reconnected');
+});
 
 // Routes
 const contactRoute = require('./routes/contact');
@@ -74,7 +104,3 @@ app.post('/api/send-email', async (req, res) => {
     res.status(500).json({ message: 'Failed to send emails', error: error.message });
   }
 });
-
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
