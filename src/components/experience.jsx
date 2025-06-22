@@ -4,6 +4,12 @@ import './css/experience.css';
 function Experience(){
   const experiences = [
     {
+      title: 'Full Stack Developer',
+      company: 'Digiwork Online Services & Consultancy LLP',
+      duration: 'Present',
+      description: 'Building full stack web applications using React & Java frameworks.'
+    },
+    {
       title: 'Building Modern Web Applications with MERN Stack',
       company: 'EY Edunet Foundation',
       duration: '1-month',

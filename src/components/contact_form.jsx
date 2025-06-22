@@ -38,17 +38,30 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        // Send emails after saving to DB
-        await fetch(`${apiUrl}/api/send-email`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
+        try {
+          // Send emails after saving to DB
+          const emailResponse = await fetch(`${apiUrl}/api/send-email`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
 
-        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-        alert('Message sent successfully!');
+          const emailData = await emailResponse.json();
+          console.log('Email response:', emailData); // Debug log
+
+          if (!emailResponse.ok) {
+            throw new Error(emailData.message || 'Failed to send email');
+          }
+
+          setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+          alert('Message sent successfully!');
+        } catch (emailError) {
+          console.error('Email sending error:', emailError);
+          alert(`Message saved but email failed: ${emailError.message}`);
+        }
       } else {
         const errorData = await response.json().catch(() => ({}));
         alert(
