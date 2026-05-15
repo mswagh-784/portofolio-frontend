@@ -9,7 +9,7 @@ import './css/projects.css';
 const projectImages = {
   movieList: {
     src: new URL('../assets/projects/movie.jpg', import.meta.url).href,
-    alt: 'Movie List SHowcase',
+    alt: 'BillMaster-pro',
     width: 800,
     height: 600
   },
@@ -40,6 +40,12 @@ const projectImages = {
   ecommerce: {
     src: new URL('../assets/projects/ecommerce.webp', import.meta.url).href,
     alt: 'Project GK',
+    width: 800,
+    height: 600
+  },
+  fintech: {
+    src: new URL('../assets/projects/fintech.jpg', import.meta.url).href,
+    alt: 'Project fintech',
     width: 800,
     height: 600
   }
@@ -82,10 +88,16 @@ function Projects() {
       link: '#'
     },
     {
-      title: 'Movie List Android App',
-      description: 'Application to view movie list using JetPack Compose', 
+      title: 'BillMaster-pro',
+      description: 'Saas platform for POS', 
       image: projectImages.movieList,
-      link: 'https://github.com/mswagh-784/JetMovies'
+      link: 'https://v0-modern-billing-system.vercel.app/'
+    },
+    {
+      title: 'Fintech',
+      description: 'Saas platform for Payment', 
+      image: projectImages.fintech,
+      link: 'https://github.com/mohit-wagh-5257/Fintech.git'
     },
   ];
 

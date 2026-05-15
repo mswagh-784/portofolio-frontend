@@ -8,6 +8,11 @@ function Achievements(){
       role: 'writer & Director',
       description: 'CESA departmental skit secured runner up position among 7 department,in the departmental skit competition of our college.'
     },
+    {
+      title: 'First Price in Skit :2025-26',
+      role: 'writer & Director',
+      description: 'CESA departmental skit secured first position among 7 department,in the departmental skit competition of our college for academic year 2025-26.'
+    },
   ];
   return (
     <section className="achievements-section">

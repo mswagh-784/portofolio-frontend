@@ -5,21 +5,21 @@ function Experience(){
   const experiences = [
     {
       title: 'Full Stack Developer',
-      company: 'Digiwork Online Services & Consultancy LLP',
-      duration: 'Present',
-      description: 'Building full stack web applications using React & Java frameworks.'
+      company: 'ThynkTech India OPC Pvt Ltd',
+      duration: 'Aug 2025 - Feb 2026',
+      description: 'Building full stack web and mobile applications using React & Spring-boot.'
+    },
+    {
+      title: 'Full Stack Developer',
+      company: 'Digiwork Online Services & Consultancy LLP', 
+      duration: 'May 2025 – July 2025',
+      description: 'Building full stack web applications using React & Java frameworks and migration of technology of projects'
     },
     {
       title: 'Building Modern Web Applications with MERN Stack',
       company: 'EY Edunet Foundation',
       duration: '1-month',
       description: 'MERN stack training & internship certificate by Edunet Foundation(AICTE approved).'
-    },
-    {
-      title: 'Entrepreneurship Development', 
-      company: 'Anvay',
-      duration: '04/07/2024 - current',
-      description: 'Anvay is a platform that helps mental health professionals to manage their practice and clients.'
     }
   ];
   return (
