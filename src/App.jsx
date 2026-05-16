@@ -61,11 +61,11 @@ function App() {
         </ScrollAnimation>
       </section>
 
-      <section id="contact" className="contact-section">
+      {/* <section id="contact" className="contact-section">
         <ScrollAnimation animation="fade-up">
           <ContactForm />
         </ScrollAnimation>
-      </section>
+      </section> */}
 
       <Footer />
     </div>
